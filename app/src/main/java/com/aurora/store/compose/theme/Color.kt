@@ -1,6 +1,6 @@
 /*
- * SPDX-FileCopyrightText: 2025 The Calyx Institute
  * SPDX-License-Identifier: GPL-3.0-or-later
+ * iOS-style palette for the App Store reskin (Rafay)
  */
 
 package com.aurora.store.compose.theme
@@ -13,93 +13,74 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 
-/**
- * Whether the active [MaterialTheme] is dark.
- *
- * Derived from the resolved color scheme rather than [androidx.compose.foundation.isSystemInDarkTheme]
- * so it stays correct when the user forces a light/dark theme that differs from the system setting.
- */
 @Composable
 @ReadOnlyComposable
 private fun isAppInDarkTheme(): Boolean = MaterialTheme.colorScheme.surface.luminance() < 0.5f
 
-/**
- * Amber used to flag warnings/caveats. Lightened in dark theme for adequate contrast.
- */
 val warningColor: Color
     @Composable @ReadOnlyComposable
-    get() = if (isAppInDarkTheme()) Color(0xFFFFB74D) else Color(0xFFFF7600)
+    get() = if (isAppInDarkTheme()) Color(0xFFFFD60A) else Color(0xFFFF9500)
 
-/**
- * Green used to flag positive/success states. Lightened in dark theme for adequate contrast.
- */
 val successColor: Color
     @Composable @ReadOnlyComposable
-    get() = if (isAppInDarkTheme()) Color(0xFF5BD27A) else Color(0xFF1B8738)
+    get() = if (isAppInDarkTheme()) Color(0xFF30D158) else Color(0xFF34C759)
 
 val colorGreen: Color
     @Composable @ReadOnlyComposable
-    get() = if (isAppInDarkTheme()) Color(0xFF81C784) else Color(0xFF388E3C)
+    get() = if (isAppInDarkTheme()) Color(0xFF30D158) else Color(0xFF34C759)
 
 val colorRed: Color
     @Composable @ReadOnlyComposable
-    get() = if (isAppInDarkTheme()) Color(0xFFE57373) else Color(0xFFD32F2F)
+    get() = if (isAppInDarkTheme()) Color(0xFFFF453A) else Color(0xFFFF3B30)
 
-/**
- * Brand color schemes seeded from Aurora's accent (#6C63FF), used on devices that don't support
- * dynamic color (Android 11 and below) so the full palette stays on-brand instead of falling back
- * to Material's default purple baseline.
- */
+/** iOS light palette — system blue accent, grouped-list grays. */
 val BrandLightColorScheme = lightColorScheme(
-    primary = Color(0xFF6C63FF),
+    primary = Color(0xFF007AFF),
     onPrimary = Color(0xFFFFFFFF),
-    primaryContainer = Color(0xFFE4DFFF),
-    onPrimaryContainer = Color(0xFF1A0066),
-    secondary = Color(0xFF5C5D72),
+    primaryContainer = Color(0xFFD9E8FF),
+    onPrimaryContainer = Color(0xFF001E3C),
+    secondary = Color(0xFF5856D6),
     onSecondary = Color(0xFFFFFFFF),
-    secondaryContainer = Color(0xFFE1E0F9),
-    onSecondaryContainer = Color(0xFF191A2C),
-    tertiary = Color(0xFF78536B),
+    secondaryContainer = Color(0xFFE2E1FB),
+    onSecondaryContainer = Color(0xFF14133B),
+    tertiary = Color(0xFFAF52DE),
     onTertiary = Color(0xFFFFFFFF),
-    tertiaryContainer = Color(0xFFFFD8EE),
-    onTertiaryContainer = Color(0xFF2E1126),
-    background = Color(0xFFFCF8FF),
-    onBackground = Color(0xFF1B1B21),
-    surface = Color(0xFFFCF8FF),
-    onSurface = Color(0xFF1B1B21),
-    surfaceVariant = Color(0xFFE4E1EC),
-    onSurfaceVariant = Color(0xFF47464F),
-    outline = Color(0xFF777680),
-    outlineVariant = Color(0xFFC8C5D0),
-    error = Color(0xFFBA1A1A),
+    background = Color(0xFFF2F2F7),
+    onBackground = Color(0xFF000000),
+    surface = Color(0xFFFFFFFF),
+    onSurface = Color(0xFF000000),
+    surfaceVariant = Color(0xFFF2F2F7),
+    onSurfaceVariant = Color(0xFF3C3C43),
+    outline = Color(0xFFC6C6C8),
+    outlineVariant = Color(0xFFD1D1D6),
+    error = Color(0xFFFF3B30),
     onError = Color(0xFFFFFFFF),
     errorContainer = Color(0xFFFFDAD6),
     onErrorContainer = Color(0xFF410002)
 )
 
+/** iOS dark palette — true black, brighter system blue. */
 val BrandDarkColorScheme = darkColorScheme(
-    primary = Color(0xFFC8BFFF),
-    onPrimary = Color(0xFF31149C),
-    primaryContainer = Color(0xFF534BD6),
-    onPrimaryContainer = Color(0xFFE4DFFF),
-    secondary = Color(0xFFC5C4DD),
-    onSecondary = Color(0xFF2E2F42),
-    secondaryContainer = Color(0xFF444559),
-    onSecondaryContainer = Color(0xFFE1E0F9),
-    tertiary = Color(0xFFE8B9D5),
-    onTertiary = Color(0xFF46263B),
-    tertiaryContainer = Color(0xFF5E3C52),
-    onTertiaryContainer = Color(0xFFFFD8EE),
-    background = Color(0xFF131318),
-    onBackground = Color(0xFFE4E1E9),
-    surface = Color(0xFF131318),
-    onSurface = Color(0xFFE4E1E9),
-    surfaceVariant = Color(0xFF47464F),
-    onSurfaceVariant = Color(0xFFC8C5D0),
-    outline = Color(0xFF918F9A),
-    outlineVariant = Color(0xFF47464F),
-    error = Color(0xFFFFB4AB),
-    onError = Color(0xFF690005),
+    primary = Color(0xFF0A84FF),
+    onPrimary = Color(0xFFFFFFFF),
+    primaryContainer = Color(0xFF003063),
+    onPrimaryContainer = Color(0xFFD9E8FF),
+    secondary = Color(0xFF5E5CE6),
+    onSecondary = Color(0xFFFFFFFF),
+    secondaryContainer = Color(0xFF2D2C4A),
+    onSecondaryContainer = Color(0xFFE2E1FB),
+    tertiary = Color(0xFFBF5AF2),
+    onTertiary = Color(0xFFFFFFFF),
+    background = Color(0xFF000000),
+    onBackground = Color(0xFFFFFFFF),
+    surface = Color(0xFF1C1C1E),
+    onSurface = Color(0xFFFFFFFF),
+    surfaceVariant = Color(0xFF2C2C2E),
+    onSurfaceVariant = Color(0xFFEBEBF5),
+    outline = Color(0xFF38383A),
+    outlineVariant = Color(0xFF48484A),
+    error = Color(0xFFFF453A),
+    onError = Color(0xFFFFFFFF),
     errorContainer = Color(0xFF93000A),
     onErrorContainer = Color(0xFFFFDAD6)
 )

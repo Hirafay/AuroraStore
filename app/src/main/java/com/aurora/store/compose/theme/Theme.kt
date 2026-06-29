@@ -60,8 +60,7 @@ fun AuroraTheme(content: @Composable () -> Unit) {
         prefs.registerOnSharedPreferenceChangeListener(listener)
         onDispose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
     }
-    val useDynamicColor = dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-
+    val useDynamicColor = false
     val lightScheme = if (useDynamicColor) {
         dynamicLightColorScheme(context)
     } else {
